@@ -153,14 +153,14 @@
                     </a>
                 </template>
             </table-column>
-            <template slot="tfoot" scope="{ rows }">
+            <template slot="tfoot" scope="{ rows, allrows }">
                 <tr>
                     <th>&nbsp;</th>
                     <th>&nbsp;</th>
                     <th>Total Songs:</th>
-                    <th>{{ rows.reduce((sum, value) => { return sum + value.data.songs; }, 0) }}</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
+                    <th>{{rows.reduce((sum, value) => { return sum + value.data.songs; }, 0) }}</th>
+                    <th>within</th>
+                    <th>{{allrows.reduce((sum, value) => { return sum + value.data.songs; }, 0) }}</th>
                 </tr>
             </template>
         </table-component>

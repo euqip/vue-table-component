@@ -40,7 +40,7 @@
                 ></table-row>
                 </tbody>
                 <tfoot>
-                    <slot name="tfoot" :rows="rows"></slot>
+                    <slot name="tfoot" :rows="displayedRows" :allrows="rows"></slot>
                 </tfoot>
             </table>
         </div>
