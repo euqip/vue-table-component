@@ -2,6 +2,14 @@
 
 All notable changes to `vue-table-component` will be documented in this file.
 
+## 1.9.1 - 2018-02-20
+- replaced hardcoded texts with global settings, and according props
+- added `tableNotSorted` prop
+- added `tableSortedBy` prop
+- added `asc` prop
+- added `desc` prop
+- added `none` prop
+
 ## 1.9.0 - 2018-02-08
 - Better pagination component
 - Fixed global settings that weren't always applies

@@ -151,6 +151,10 @@ TableComponent.settings({
     tbodyClass: '',
     filterPlaceholder: 'Filter table…',
     filterNoResults: 'There are no matching rows',
+    tableNotSorted: 'Table not sorted',
+    tableSortedBy: 'Table sorted by',
+    asc: 'ascending',
+    desc: 'descending',
 });
 ```
 
@@ -166,6 +170,10 @@ Vue.use(TableComponent, {
     tbodyClass: '',
     filterPlaceholder: 'Filter table…',
     filterNoResults: 'There are no matching rows',
+    tableNotSorted: 'Table is not sorted',
+    tableSortedBy: 'Table is sorted by',
+    asc: 'ascending',
+    desc: 'descending',
 });
 ```
 
@@ -265,7 +273,7 @@ This will display values `Hi, I am John` and `Hi, I am Paul`.
 ## Adding table footer `<tfoot>` information
 
 Sometimes it can be useful to add information to the bottom of the table like summary data.
-A slot named `tfoot` is available and it receives all of the `rows` data to do calculations on the fly or you can show data directly from whatever is available in the parent scope.
+A slot named `tfoot` is available and it receives the filtered `rows` and all of the `allrows` data to do calculations on the fly or you can show data directly from whatever is available in the parent scope.
 
 ```html
 <table-component

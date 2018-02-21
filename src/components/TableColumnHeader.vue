@@ -16,9 +16,19 @@
     import { classList } from '../helpers';
 
     export default {
-        props: ['column', 'sort'],
+        props: ['column', 'sort', 'asc', 'desc', 'none'],
 
         computed: {
+            // set default values to texts in code
+            asctext() {
+                return  (this.asc === undefined ? 'ascending' : this.asc);
+                },
+            desctext() {
+                return  (this.asc === undefined ? 'descending' : this.desc);
+                },
+            nonetext() {
+                return  (this.none === undefined ? 'none' : this.none);
+                },
             ariaDisabled() {
                 if (! this.column.isSortable()) {
                     return 'true';
@@ -33,10 +43,10 @@
                 }
 
                 if (this.column.show !== this.sort.fieldName) {
-                    return 'none';
+                    return this.nonetext;
                 }
 
-                return this.sort.order === 'asc' ? 'ascending' : 'descending';
+                return this.sort.order === 'asc' ? this.asctext : this.desctext;
             },
 
             headerClass() {
