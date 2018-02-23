@@ -28,5 +28,12 @@
             cellClass: { default: settings.cellClass },
             headerClass: { default: settings.headerClass },
         },
+        computed: {
+            colsortable() {
+                const tblsortable = (this.tablesortable === null || this.tablesortable === undefined ? true : this.tablesortable)
+                return (this.sortable === null ? tblsortable : this.sortable)
+            }
+        }
+
     };
 </script>
