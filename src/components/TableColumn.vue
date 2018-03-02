@@ -15,7 +15,7 @@
             label: { default: null, type: String },
             dataType: { default: 'string', type: String },
 
-            sortable: { default: true, type: Boolean },
+            sortable: { default: settings.sortabledefault, type: Boolean },
             sortBy: { default: null },
 
             filterable: { default: true, type: Boolean },
@@ -27,6 +27,12 @@
 
             cellClass: { default: settings.cellClass },
             headerClass: { default: settings.headerClass },
+            tablesortable: { default: settings.tablesortable },
         },
+        computed: {
+            colsortable() {
+                return this.tablesortable && this.sortable
+            }
+        }
     };
 </script>

@@ -2,6 +2,10 @@
 
 All notable changes to `vue-table-component` will be documented in this file.
 
+- added param to enable or desable sortable to the whole table
+- added param to define default for sortable (true or false)
+- added params (4) as text to replace hardcoded text
+
 ## 1.9.0 - 2018-02-08
 - Better pagination component
 - Fixed global settings that weren't always applies

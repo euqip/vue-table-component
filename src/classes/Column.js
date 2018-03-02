@@ -3,7 +3,7 @@ import { pick } from '../helpers';
 export default class Column {
     constructor(columnComponent) {
         const properties = pick(columnComponent, [
-            'show', 'label', 'dataType', 'sortable', 'sortBy', 'filterable',
+            'show', 'label', 'dataType', 'colsortable', 'sortBy', 'filterable',
             'filterOn', 'hidden', 'formatter', 'cellClass', 'headerClass',
         ]);
 
@@ -24,7 +24,7 @@ export default class Column {
     }
 
     isSortable() {
-        return this.sortable;
+        return this.colsortable;
     }
 
     getSortPredicate(sortOrder, allColumns) {
