@@ -22,11 +22,14 @@
                 <thead :class="fullTableHeadClass">
                 <tr>
                     <table-column-header
-                            @click="changeSorting"
-                            v-for="column in columns"
-                            :key="column.show"
-                            :sort="sort"
-                            :column="column"
+                        @click="changeSorting"
+                        v-for="column in columns"
+                        :key="column.show"
+                        :sort="sort"
+                        :column="column"
+                        :asc="asc"
+                        :desc="desc"
+                        :none="none"
                     ></table-column-header>
                 </tr>
                 </thead>
@@ -93,6 +96,12 @@
             filterInputClass: { default: () => settings.filterInputClass },
             filterPlaceholder: { default: () => settings.filterPlaceholder },
             filterNoResults: { default: () => settings.filterNoResults },
+            // use props to pass required i18n text, defaults are 'en'
+            tableNotSorted: { default: () => settings.tableNotSorted },
+            tableSortedBy: { default: () => settings.tableSortedBy },
+            asc: { default: () => settings.asc },
+            desc: { default: () => settings.desc },
+            none: { default: () => settings.none },
         },
 
         data: () => ({
@@ -172,11 +181,11 @@
 
             ariaCaption() {
                 if (this.sort.fieldName === '') {
-                    return 'Table not sorted';
+                    return this.tableNotSorted;
                 }
 
-                return `Table sorted by ${this.sort.fieldName} ` +
-                    (this.sort.order === 'asc' ? '(ascending)' : '(descending)');
+                return this.tableSortedBy + ' ' + this.sort.fieldName + ' ' + '(' +
+                    (this.sort.order === 'asc' ? this.asc : this.desc) +')';
             },
 
             usesLocalData() {
