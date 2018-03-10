@@ -316,7 +316,7 @@
 
 			emitRowClick(row) {
 				this.$emit('rowClick', row);
-			}
+			},
         },
     };
 </script>
