@@ -85,8 +85,8 @@
             showCaption: { default: true },
 
             sortBy: { default: '', type: String },
+            sortByLabel: { default: '', type: String },
             sortOrder: { default: '', type: String },
-
             cacheKey: { default: null },
             cacheLifetime: { default: 5 },
 
@@ -111,6 +111,7 @@
             sort: {
                 fieldName: '',
                 order: '',
+                label: ''
             },
             pagination: null,
 
@@ -120,6 +121,7 @@
         created() {
             this.sort.fieldName = this.sortBy;
             this.sort.order = this.sortOrder;
+            this.sort.label = this.sortByLabel === '' ? this.sortBy : this.SortByLabel;
 
             this.restoreState();
         },
@@ -184,7 +186,7 @@
                     return this.tableNotSorted;
                 }
 
-                return this.tableSortedBy + ' ' + this.sort.fieldName + ' ' + '(' +
+                return this.tableSortedBy + ' ' + this.sort.label + ' ' + '(' +
                     (this.sort.order === 'asc' ? this.asc : this.desc) +')';
             },
 
@@ -291,6 +293,7 @@
                 if (this.sort.fieldName !== column.show) {
                     this.sort.fieldName = column.show;
                     this.sort.order = 'asc';
+                    this.sort.label = column.label === undefined ? column.show : column.label;
                 } else {
                     this.sort.order = (this.sort.order === 'asc' ? 'desc' : 'asc');
                 }
